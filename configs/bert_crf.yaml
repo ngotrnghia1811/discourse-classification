@@ -1,0 +1,26 @@
+model:
+  encoder: bert-base-uncased
+  use_crf: true
+  use_sentence_encoder: false
+  use_hde: false
+  label_scheme: bio
+  max_seq_len: 512
+  dropout: 0.1
+
+train:
+  learning_rate: 2.0e-5
+  batch_size: 8
+  n_epochs: 10
+  warmup_ratio: 0.1
+  weight_decay: 0.01
+  max_grad_norm: 1.0
+  patience: 5
+  seed: 42
+
+data:
+  train_file: data/train.csv
+  dev_file: data/dev.csv
+  test_file: data/test.csv
+  essay_dir: data/train
+
+output_dir: checkpoints/bert_crf/
